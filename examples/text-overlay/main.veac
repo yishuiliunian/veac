@@ -1,0 +1,39 @@
+// VEAC Text Overlay Example
+// Demonstrates text overlays on video.
+
+project "text-demo" {
+    resolution = "1920x1080"
+    fps        = 30
+    format     = "mp4"
+}
+
+asset background = video("./assets/background.mp4")
+
+timeline main {
+    track video {
+        clip background {
+            from = 0s
+            to   = 30s
+        }
+    }
+
+    track text {
+        text "Welcome to VEAC" {
+            at       = 2s
+            duration = 5s
+            font     = "Arial"
+            size     = 72
+            color    = #FFFFFF
+            position = "center"
+        }
+
+        text "Video Editing as Code" {
+            at       = 8s
+            duration = 4s
+            font     = "Arial"
+            size     = 48
+            color    = #00FF00
+            position = "bottom"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+[package]
+name = "veac-cli"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "veac"
+path = "src/main.rs"
+
+[dependencies]
+veac-lang = { path = "../veac-lang" }
+veac-codegen = { path = "../veac-codegen" }
+veac-runtime = { path = "../veac-runtime" }
+clap = { version = "4", features = ["derive"] }
+csv = "1"

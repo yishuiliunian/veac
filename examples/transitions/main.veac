@@ -1,0 +1,22 @@
+// Multi-segment video with fade transitions.
+project "transitions-demo" {
+    resolution = "1920x1080"
+    fps = 30
+    format = "mp4"
+    codec = "h264"
+    quality = "high"
+}
+
+asset intro = video("assets/intro.mp4")
+asset scene1 = video("assets/scene1.mp4")
+asset outro = video("assets/outro.mp4")
+
+timeline main {
+    track video {
+        clip intro { from = 0s to = 10s }
+        transition { type = "fade" duration = 1s }
+        clip scene1 { from = 0s to = 20s }
+        transition { type = "dissolve" duration = 1.5s }
+        clip outro { from = 0s to = 8s }
+    }
+}

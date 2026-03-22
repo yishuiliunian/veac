@@ -1,0 +1,7 @@
+[package]
+name = "veac-codegen"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+veac-lang = { path = "../veac-lang" }

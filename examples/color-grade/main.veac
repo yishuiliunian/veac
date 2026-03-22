@@ -1,0 +1,34 @@
+// Color grading demo: brightness, contrast, saturation adjustments.
+project "color-grade" {
+    resolution = "1920x1080"
+    fps = 30
+    format = "mp4"
+    codec = "h264"
+    quality = "high"
+}
+
+asset footage = video("assets/footage.mp4")
+
+timeline main {
+    track video {
+        // Warm, slightly brighter look
+        clip footage {
+            from       = 0s
+            to         = 15s
+            brightness = 0.1
+            contrast   = 1.2
+            saturation = 1.5
+        }
+
+        transition { type = "dissolve" duration = 1s }
+
+        // Desaturated, low-contrast cinematic look
+        clip footage {
+            from       = 15s
+            to         = 30s
+            brightness = -0.05
+            contrast   = 0.8
+            saturation = 0.5
+        }
+    }
+}

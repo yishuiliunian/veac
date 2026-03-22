@@ -1,0 +1,27 @@
+// Speed control demo: fast-forward and slow-motion.
+project "speed-demo" {
+    resolution = "1920x1080"
+    fps = 30
+    format = "mp4"
+    codec = "h264"
+    quality = "high"
+}
+
+asset footage = video("assets/footage.mp4")
+
+timeline main {
+    track video {
+        // Normal speed opening
+        clip footage { from = 0s to = 10s }
+
+        transition { type = "fade" duration = 0.5s }
+
+        // 2x fast-forward
+        clip footage { from = 10s to = 30s speed = 2.0 }
+
+        transition { type = "fade" duration = 0.5s }
+
+        // 0.5x slow-motion
+        clip footage { from = 30s to = 40s speed = 0.5 }
+    }
+}

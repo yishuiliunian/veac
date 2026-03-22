@@ -1,0 +1,38 @@
+# Build artifacts
+/target
+**/*.rs.bk
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Media assets (binary, large files — not suitable for git)
+*.mp4
+*.mkv
+*.webm
+*.mov
+*.avi
+*.mp3
+*.m4a
+*.wav
+*.flac
+*.ogg
+*.aac
+
+# Image assets in demo directories (keep example .veac files, not binaries)
+demo/assets/
+demo-screen/assets/
+demo-mix/
+
+# Rendered output
+output.*
+
+# IDE
+.idea/
+.vscode/
+*.iml

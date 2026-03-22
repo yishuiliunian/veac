@@ -1,0 +1,55 @@
+// VEAC Hello World Example
+// A simple video project demonstrating basic VEAC features.
+
+project "hello-world" {
+    resolution = "1920x1080"
+    fps        = 30
+    format     = "mp4"
+    codec      = "h264"
+    quality    = "high"
+}
+
+// Asset declarations
+asset intro  = video("./assets/intro.mp4")
+asset scene1 = video("./assets/scene1.mp4")
+asset bgm    = audio("./assets/bgm.mp3")
+
+// Variables
+let default_volume = 0.8
+
+// Main timeline
+timeline main {
+
+    // Video track: sequential clips
+    track video {
+        clip intro {
+            from = 0s
+            to   = 10s
+        }
+
+        clip scene1 {
+            from     = 5s
+            to       = 30s
+            volume   = 0.5
+        }
+    }
+
+    // Background music
+    track audio {
+        clip bgm {
+            volume = default_volume
+        }
+    }
+
+    // Text overlay
+    track text {
+        text "Hello World" {
+            at       = 3s
+            duration = 5s
+            font     = "Arial"
+            size     = 48
+            color    = #FFFFFF
+            position = "center"
+        }
+    }
+}

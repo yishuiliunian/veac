@@ -1,0 +1,27 @@
+// Video with watermark logo overlay.
+project "overlay-demo" {
+    resolution = "1920x1080"
+    fps = 30
+    format = "mp4"
+    codec = "h264"
+    quality = "high"
+}
+
+asset main_video = video("assets/main.mp4")
+asset logo = image("assets/logo.png")
+
+timeline main {
+    track video {
+        clip main_video { from = 0s to = 60s }
+    }
+
+    track overlay {
+        image logo {
+            at       = 0s
+            duration = 60s
+            position = "top-right"
+            scale    = 0.1
+            opacity  = 0.8
+        }
+    }
+}

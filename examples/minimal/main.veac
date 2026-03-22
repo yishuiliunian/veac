@@ -1,0 +1,19 @@
+// VEAC Minimal Example
+// The simplest possible .veac file: a single clip.
+
+project "minimal" {
+    resolution = "1280x720"
+    fps        = 30
+    format     = "mp4"
+}
+
+asset clip1 = video("./assets/clip.mp4")
+
+timeline main {
+    track video {
+        clip clip1 {
+            from = 0s
+            to   = 10s
+        }
+    }
+}

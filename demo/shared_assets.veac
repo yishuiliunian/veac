@@ -1,0 +1,3 @@
+// Shared assets — included by main.veac (P1: include/template)
+asset bgm = audio("assets/bgm.m4a")
+asset logo = image("assets/logo.png")
