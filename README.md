@@ -3,7 +3,15 @@
 ![CI](https://github.com/AstroStone/veac/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-A declarative, non-Turing-complete domain-specific language that compiles `.veac` source files into FFmpeg commands to produce video output.
+**Let AI agents edit videos by writing code, not clicking buttons.**
+
+VEAC is a declarative DSL (Domain-Specific Language) designed to bridge the gap between AI agents and video editing. AI agents are exceptionally good at reading and writing files — but they can't operate GUI-based video editors. VEAC turns video editing into a file-processing task: agents write `.veac` source files, and the VEAC compiler transforms them into FFmpeg commands to produce the final video.
+
+```
+User intent → AI Agent → .veac file → VEAC compiler → FFmpeg → video output
+```
+
+By abstracting video editing into a simple, declarative text format, any AI agent with file I/O capabilities can become a video editor — no mouse, no timeline UI, just code.
 
 ## Quick Example
 
@@ -76,12 +84,14 @@ See the [`examples/`](examples/) directory:
 - `batch-demo/` — Batch rendering from CSV
 - `all-features/` — Comprehensive demo with all capabilities
 
-## Design Principles
+## Why VEAC?
 
-- **Declarative**: Describe what the video should be, not how to process it
-- **Non-Turing-complete**: Variables and references only — no loops, conditionals, or recursion
-- **Agent-friendly**: Clear syntax and helpful error messages for AI-assisted editing
-- **Single source format**: `.veac` files are the canonical representation
+AI agents excel at file processing — reading, writing, and transforming text. But video editing has traditionally required GUI interaction that agents simply cannot perform. VEAC solves this by turning video editing into a **file-processing problem**:
+
+- **Agent-first design**: The syntax is intentionally simple and non-Turing-complete, making it easy for LLMs to generate correct `.veac` files without hallucinating complex logic
+- **Declarative**: Describe *what* the video should be, not *how* to process it — agents describe the desired outcome, VEAC handles the FFmpeg complexity
+- **Verifiable**: `veac check` validates the file before rendering, giving agents fast feedback loops without waiting for video output
+- **Single source format**: `.veac` files are plain text — agents can read, write, diff, and version-control them with standard file tools
 
 ## License
 
