@@ -24,9 +24,7 @@ Thumbs.db
 *.ogg
 *.aac
 
-# Image assets in demo directories (keep example .veac files, not binaries)
-demo/assets/
-demo-screen/assets/
+# Miscellaneous build artifacts
 demo-mix/
 
 # Rendered output
